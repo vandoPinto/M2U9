@@ -1,0 +1,80 @@
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE NO SISTEMA ÚNICO DE SAÚDE (SUS)</p>
+</div>
+<div style="margin-top: 35px;margin-left: 34px;width: 823px;">
+    <p>Lembre-se de que são muito variados os tipos de materiais que os gestores precisam gerir na unidade de saúde.
+        Eles
+        incluem desde materiais médicos, odontológicos até medicamentos e vacinas, que são materiais de muita
+        complexidade.
+        Então, classificamos esses materiais de maneira distinta, seguindo alguns critérios para isso.</p>
+    <p>Clique nos itens para
+        conhecê-los.</p>
+
+    <div>
+        <div
+            style="width: 97px;height: 42px;background: #FFA800 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Uso</p>
+        </div>
+        <div
+            style="width: 209px;height: 42px;background: #108141 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Importância operacional</p>
+        </div>
+        <div
+            style="width: 145px;height: 42px;background: #54BFCD 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Perecibilidade</p>
+        </div>
+
+        <div
+            style="width: 145px;height: 42px;background: #2F5579 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Periculosidade</p>
+        </div>
+        <div
+            style="width: 174px;height: 42px;background: #1B8992 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Valor de demanda</p>
+        </div>
+        <div
+            style="width: 234px;height: 42px;background: #29696D 0% 0% no-repeat padding-box;border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+            <p style="color: white; font-weight: bold;">Permanentes ou de consumo</p>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: white;font-size: 12px;">MÓDULO 2</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">CONHECIMENTOS ESTRATÉGICOS PARA
+            A GESTÃO DA ESF</p>
+        <p style="margin-left: 140px;color: white;font-size: 12px;">UNIDADE 6</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">PLANEJAMENTO E PROGRAMAÇÃO EM
+            SAÚDE
+        </p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

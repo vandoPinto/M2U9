@@ -1,0 +1,56 @@
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE NO SISTEMA ÚNICO DE SAÚDE (SUS)</p>
+</div>
+<div style="margin-top: 35px;margin-left: 34px;width: 823px;">
+    <p>Nesse contexto, chamamos sua atenção para uma pesquisa que analisou as relações entre o acesso a medicamentos
+        pela
+        população e a institucionalização da assistência farmacêutica na APS (BARROS et al., 2017). Entre as dimensões
+        avaliadas, destacamos alguns resultados. </p>
+    <p>Clique sobre os medicamentos e conheça os resultados.</p>
+    <div>
+        <img src="recursos/imgs/img-slide-22.1.svg">
+        <img src="recursos/imgs/img-slide-22.2.svg">
+        <img src="recursos/imgs/img-slide-22.3.svg">
+        <img src="recursos/imgs/img-slide-22.4.svg">
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: white;font-size: 12px;">MÓDULO 2</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">CONHECIMENTOS ESTRATÉGICOS PARA
+            A GESTÃO DA ESF</p>
+        <p style="margin-left: 140px;color: white;font-size: 12px;">UNIDADE 6</p>
+        <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">PLANEJAMENTO E PROGRAMAÇÃO EM
+            SAÚDE
+        </p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
