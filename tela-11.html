@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px;width: 100%;">
     <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -17,6 +28,62 @@
             <img src="recursos/imgs/img-slide-11.svg" style="width: 360px;margin-top: 40px;margin-left: 50px;">
         </div>
     </div>
+    <div>
+        <div id="botao_1"
+            style="width: 180px;height: 160px; top: 100px;left: 560px;position: absolute;cursor: pointer;">
+        </div>
+        <div id="botao_2"
+            style="width: 170px;height: 172px; top: 267px;left: 470px;position: absolute;cursor: pointer;">
+        </div>
+        <div id="botao_3"
+            style="width: 168px;height: 170px; top: 268px;left: 663px;position: absolute;cursor: pointer;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">GESTÃO DAS UNIDADES DE DISTRIBUIÇÃO</p>
+                    <p style="color: white;">Como controlar fisicamente os materiais e insumos da unidade.<br>
+                        Recebimento,
+                        armazenagem, distribuição, movimentação de
+                        materiais etc.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 743px;height: 173px;background: #108141 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">GESTÃO DE COMPRA</p>
+                    <p style="color: white;">De quem e em quais condições comprar.<br> Identificação de fornecedores,
+                        pesquisa de preços, negociação com o mercado,
+                        licitações, compras diretas (dispensa e inexigibilidade de licitação), acompanhamento de
+                        pedidos, liquidação etc.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 743px;height: 185px;background: #1B8992 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">GESTÃO DE ESTOQUE</p>
+                    <p style="color: white;">O que solicitar ou comprar, qual a quantidade e quando comprar.<br> Análise
+                        dos custos de estoque, previsão de consumo,
+                        operacionalização dos sistemas de reposição de estoque, inventários dos estoques, apuração de
+                        indicadores (giro e
+                        cobertura de estoques, entre outros) etc.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
     <div style="margin-top: -8px;display: flex;margin-left: 42px;">
@@ -29,3 +96,28 @@
         </p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

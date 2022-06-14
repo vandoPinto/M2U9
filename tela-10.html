@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div class="coluna-esquerda altura-1_1 largura-1_3 centro">
     <img src="recursos/imgs/T5.svg" style="top: 0px;left: 0px;width: 140px;">
 </div>
@@ -6,4 +17,104 @@
     <p>Clique nas palavras para conhecê-las.</p>
     <img class="animate__animated animate__backInRight" style="margin-top: 57px;margin-left: 120px;width: 411px;"
         src="recursos/imgs/img-slide-10.svg">
+    <div>
+        <div id="botao_1" style="width: 80px;height: 40px; top: 180px;left: 450px;position: absolute;">
+        </div>
+        <div id="botao_2" style="width: 80px;height: 22px; top: 219px;left: 502px;position: absolute;">
+        </div>
+        <div id="botao_3" style="width: 108px;height: 20px; top: 238px;left: 401px;position: absolute;">
+        </div>
+        <div id="botao_4" style="width: 170px;height: 50px; top: 267px;left: 411px;position: absolute;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 743px; height: 173px; background: #108141 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">BALLOU (2001)</p>
+                    <p style="color: white;">Ballou (2001) define a logística como as atividades de movimentação e
+                        armazenagem que facilitam o fluxo de produtos,
+                        desde o ponto de aquisição da matéria-prima até o ponto de consumo final, assim como nos fluxos
+                        de informação que
+                        colocam os produtos em movimento, com o propósito de providenciar níveis de serviço adequados
+                        aos clientes a um custo
+                        razoável.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 743px;height: 173px;background: #1B8992 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">SILVA (2010)</p>
+                    <p style="color: white;">Silva (2010) define a logística como parte da preparação da produção que
+                        cuida do planejamento, da obtenção, da
+                        alimentação dos processos e da distribuição dos produtos e serviços, como resultados finais aos
+                        clientes internos e
+                        externos.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 743px;height: 185px;background: #2F5579 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">DICIONÁRIO AURÉLIO</p>
+                    <p style="color: white;">O Dicionário Aurélio define logística como um termo que se origina da
+                        palavra francesa logistique e que pode ser
+                        definida como “parte da arte da guerra que trata do planejamento e da realização de projeto e
+                        desenvolvimento, obtenção,
+                        armazenamento, transporte, distribuição, reparação, manutenção e evacuação de material.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_4">
+            <div
+                style="width: 743px;height: 173px;background: #29696D 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">ASSOCIAÇÃO BRASILEIRA DE LOGÍSTICA PROCESSO (ASLOG)</p>
+                    <p style="color: white;">A Associação Brasileira de Logística Processo (ASLOG) define como a ação de
+                        planejar, implementar e controlar
+                        eficientemente, ao custo correto, o fluxo e a armazenagem de matéria-prima, estoque, durante a
+                        produção e produtos
+                        acabados, desde o ponto de origem até o consumidor final, visando atender aos requisitos do
+                        cliente.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
