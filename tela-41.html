@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div class="coluna-esquerda altura-1_1 largura-1_3 centro">
     <img src="recursos/imgs/T5.svg" style="top: 0px;left: 0px;width: 140px;">
 </div>
@@ -7,4 +18,109 @@
         processo.<br> Clique nos ícones para conhecê-los.</p>
     <img class="animate__animated animate__backInRight" style="margin-top: 29px;margin-left: 150px;width: 370px;"
         src="recursos/imgs/img-slide-41.svg">
+    <div>
+        <div id="botao_1"
+            style="width: 140px;height: 130px;top: 135px;left: 310px;position: absolute; cursor: pointer;">
+        </div>
+        <div id="botao_2"
+            style="width: 140px;height: 130px;top: 135px;left: 559px;position: absolute; cursor: pointer;">
+        </div>
+        <div id="botao_3"
+            style="width: 140px;height: 130px;top: 323px;left: 313px;position: absolute; cursor: pointer;">
+        </div>
+        <div id="botao_4"
+            style="width: 140px;height: 130px;top: 321px;left: 553px;position: absolute; cursor: pointer;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">SISTEMA DE INFORMAÇÃO GERENCIAL E EPIDEMIOLÓGICA DEFICIENTE</p>
+                    <p style="color: white;">A existência dos sistemas de informação não significa que as informações
+                        são totalmente reais. Precisamos lembrar que a
+                        maioria deles nos oferecem dados de distribuição. O que fazer quando você tem demanda por um
+                        insumo ou material e ele
+                        não está disponível? Significa que sua demanda não existe? Não! Então, mantenha formas de
+                        registro de períodos de
+                        desabastecimento e, assim, você terá uma programação mais eficiente.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 743px;height: 173px;background: #1B8992 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RECURSOS HUMANOS DESPREPARADOS E RECURSOS FINANCEIROS INSUFICIENTES</p>
+                    <p style="color: white;">A baixa capacitação técnica e a limitação de recursos financeiros
+                        comprometem a qualidade do processo de programação.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 743px;height: 173px;background: #108141 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">FALTA DE CRITÉRIOS TÉCNICOS</p>
+                    <p style="color: white;">Esse é um dos problemas mais comuns, pois, nem sempre, os responsáveis por
+                        tais atividades tiveram treinamentos ou mesmo
+                        conhecem os aspectos técnicos para realizar tal etapa. É comum que os pedidos sejam realizados
+                        sem parâmetros ou ainda
+                        utilizando informações de programações anteriores que foram também realizadas sem critérios
+                        técnicos adequados. Você
+                        precisa ser criativo, já que, às vezes, as melhores informações são escassas ou insuficientes.
+                    </p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_4">
+            <div
+                style="width: 743px;height: 185px;background: #607D89 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">CENTRALIZAÇÃO</p>
+                    <p style="color: white;">Você precisa envolver pessoas e descentralizar etapas dessa atividade, pois
+                        é impossível que você tenha ideia exata de
+                        tudo que ocorre. Efeitos de problemas sazonais, alterações na oferta dos serviços, entre outros
+                        problemas podem alterar
+                        a realidade de consumo. A programação centralizada pode resultar em excessos e faltas de grande
+                        importância, impactando
+                        na resolutividade dos serviços.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>

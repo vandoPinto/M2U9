@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px;width: 100%;">
     <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -13,10 +24,60 @@
         avaliadas, destacamos alguns resultados. </p>
     <p>Clique sobre os medicamentos e conheça os resultados.</p>
     <div style="margin-left: 45px;width: 670px;display: flex;justify-content: space-between; margin-top: 34px;">
-        <img src="recursos/imgs/img-slide-22.1.svg" style="width: 159px;">
-        <img src="recursos/imgs/img-slide-22.2.svg" style="width: 159px;">
-        <img src="recursos/imgs/img-slide-22.3.svg" style="width: 159px;">
-        <img src="recursos/imgs/img-slide-22.4.svg" style="width: 159px;">
+        <img id="botao_1" src="recursos/imgs/img-slide-22.1.svg" style="width: 159px;">
+        <img id="botao_2" src="recursos/imgs/img-slide-22.2.svg" style="width: 159px;">
+        <img id="botao_3" src="recursos/imgs/img-slide-22.3.svg" style="width: 159px;">
+        <img id="botao_4" src="recursos/imgs/img-slide-22.4.svg" style="width: 159px;">
+    </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RESULTADO 1</p>
+                    <p style="color: white;">O acesso total a medicamentos foi maior naquelas unidades que dispunham de farmacêuticos e quando eles participavam das
+                    etapas de programação, controle de estoque e de validade dos medicamentos, além de atuarem na dispensação e entrega de
+                    medicamentos.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RESULTADO 2</p>
+                    <p style="color: white;">O acesso total a medicamentos foi maior quando os responsáveis pela entrega dos medicamentos participavam de
+                    capacitações ou cursos sobre AF.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RESULTADO 3</p>
+                    <p style="color: white;">O acesso total a medicamentos foi maior naquelas unidades que possuíam sistema informatizado para a gestão da AF e
+                    quando esse sistema estava em rede com as unidades de saúde.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_4">
+            <div
+                style="width: 743px;height: 173px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 180px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RESULTADO 4</p>
+                    <p style="color: white;">O acesso aos medicamentos foi maior naqueles municípios que investiam mais recursos para financiar a AF.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
     </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
