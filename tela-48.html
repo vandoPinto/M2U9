@@ -12,8 +12,11 @@
             <p>Clique no quadro para
                 conhecê-los</p>
         </div>
-        <div class="animate__animated animate__backInRight">
+        <div id="botao_1" class="animate__animated animate__backInRight">
             <img src="recursos/imgs/img-slide-48.svg" style="width: 353px;margin-left: 100px;margin-top: 70px;">
+        </div>
+        <div id="janela_1">
+            <img src="recursos/imgs/intera-slide-48.svg" style="width: 785px;left: 60px;top: 20px;position: absolute;">
         </div>
     </div>
 </div>
@@ -28,3 +31,28 @@
         </p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
