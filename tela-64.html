@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px;width: 100%;">
     <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -37,6 +48,83 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 743px;height: 154px;background: #108141 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">ESTOCAGEM E GUARDA</p>
+                    <p style="color: white;">Ato de organizar os materiais em área definida, com maior aproveitamento de
+                        espaço possível e dentro de parâmetros que
+                        permitam segurança e rapidez. Organize os medicamentos por nome genérico, lote e validade, de
+                        forma que permita fácil
+                        identificação. Os medicamentos com data de validade mais próxima devem ficar à frente (sistema
+                        PVPS: primeiro que vence,
+                        primeiro que sai).</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 743px;height: 124px;background: #54BFCD 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">SEGURANÇA</p>
+                    <p style="color: white;">Capacidade de manter o material protegido de danos físicos, furtos e
+                        roubos. Restrinja o acesso de pessoas às áreas de
+                        armazenamento. Lembre-se de que o estoque de materiais e insumos e medicamentos é de produtos de
+                        alto valor agregado.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 743px;height: 134px;background: #2F5579 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">RECEBIMENTO</p>
+                    <p style="color: white;">Ato de examinar e conferir o material quanto à quantidade e documentação.
+                        As unidades devem elaborar procedimento
+                        operacional padrão (POP) orientando como devem ocorrer a conferência, o registro de
+                        inconformidades observadas e as
+                        etapas de confirmação da conferência.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_4">
+            <div
+                style="width: 743px;height: 134px;background: #1B8992 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">CONSERVAÇÃO</p>
+                    <p style="color: white;">Capacidade de manter as características dos produtos durante o período de
+                        estocagem. Estoque os medicamentos de acordo
+                        com as especificações do fabricante. Realize controle diário de temperatura e umidade do
+                        ambiente por meio de
+                        termo-higrômetros e fichas de registro.</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_5">
+            <div
+                style="width: 743px;height: 124px;background: #29696D 0% 0% no-repeat padding-box; border-radius: 12px; display: flex; position: absolute;top: 200px;left: 80px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p style="color: white;">CONTROLE DE ESTOQUE</p>
+                    <p style="color: white;">Monitoramento da movimentação física dos produtos (entrada, saída e
+                        estoque). Observe as recomendações descritas no
+                        Tópico 2, que trata da programação. Lá, falamos sobre o que é necessário para garantir um bom
+                        controle de estoque!</p>
+                </div>
+                <p style="font-size: 13px;color: white;position: absolute;top: 0px;left: 730px;">x</p>
+            </div>
+        </div>
+    </div>
 </div>
 <footer style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;">
     <div style="margin-top: -8px;display: flex;margin-left: 42px;">
@@ -49,3 +137,28 @@
         </p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
