@@ -1,3 +1,14 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px;width: 100%;">
     <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
@@ -13,8 +24,25 @@
             <p>Clique nas periodicidades e observe como realizar esse inventário em cada uma delas.</p>
         </div>
         <div class="animate__animated animate__backInRight">
-            <img src="recursos/imgs/img-slide-52.svg"
-                style="width: 360px;/* height: 370px; */margin-left: 80px;margin-top: 10px;">
+            <img id="botao_1" src="recursos/imgs/img-slide-52.svg"
+                style="width: 360px; margin-left: 80px; margin-top: 10px; cursor: pointer;">
+        </div>
+        <div>
+            <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+                <div
+                    style="width: 743px;height: 124px;background: #E4F7F9 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 170px;left: 70px;align-items: center;justify-content: space-evenly;">
+                    <div
+                        style="width: 647px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <p style="color: #0D536A;">ANUAL</p>
+                        <div style="width: 620px;">
+                            <p style="width: 654px;color: #0D536A;">Ocorre obrigatoriamente ao final de cada
+                                ano-exercício. Nesse momento, são possíveis atualização dos estoques e
+                                prestação de contas.</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px;position: absolute;top: 0px;left: 770px;">x</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -28,3 +56,28 @@
             MEDICAMENTOS E INSUMOS</p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
